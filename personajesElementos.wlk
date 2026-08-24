@@ -11,7 +11,6 @@ object luisa {
     method cambiarPersonaje(nuevoPersonaje) {
         personajeActivo = nuevoPersonaje
     }
-
     method aparece(unElemento) {
         personajeActivo.encontrar(unElemento)
     }
@@ -31,7 +30,6 @@ object floki {
     method cambiarDeArma(armaNueva) {
         armaActual = armaNueva
     }
-
     method encontrar(elemento) {
         if (armaActual.estaCargada()) {
             elemento.recibirAtaque(armaActual.potencia())
@@ -60,7 +58,6 @@ object mario {
         elemento.recibirTrabajo()
         ultimoElementoEncontrado = elemento
     }
-
     method estaFeliz() = valorRecoletado >= 50 or ultimoElementoEncontrado.altura() >= 10
 }
 
@@ -71,29 +68,25 @@ object ballesta {
     method potencia() = 4
 
     method fueUsada() {
-        registrarUso()
+        self.registrarUso()
     }
-
     method registrarUso() {
         cantidadDeFlechas = cantidadDeFlechas - 1
     }
-
     method estaCargada() = cantidadDeFlechas > 0
 }
 
 object jabalina {
-    var cargada = true
+    var estaCargada = true
 
     method potencia() = 30
 
     method registrarUso() {
         cargada = false
     }
-
     method fueUsada() {
         self.registrarUso()
     }
-
     method estaCargada() = cargada
 }
 
@@ -113,7 +106,6 @@ object castillo {
             defensa = 0
         }
     }
-
     method recibirTrabajo() {
         // No hace nada
     }
@@ -127,7 +119,6 @@ object aurora {
     method recibirAtaque(valor) {
         // No hace nada
     }
-
     method recibirTrabajo() {
         // No hace nada
     }
@@ -143,13 +134,11 @@ object tipa {
     method crecer() {
         altura += 1
     }
-
     method puntoQueOtorga() = 10
 
     method recibirAtaque(valor) {
         // No hace nada
     }
-
     method recibirTrabajo() {
         self.crecer()
     }
